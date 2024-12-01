@@ -1,0 +1,68 @@
+.To-Do-List{
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+button{
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.5 ease;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.addButton{
+  background-color: hsl(120, 75%, 56%);
+  
+}
+
+.deleteButton{
+  background-color: hsl(0, 97%, 63%);
+}
+
+.upDownButton{
+  background-color:hsl(207, 90%, 64%);
+}
+
+
+input[type="text"] {
+  width: 300px;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: hsl(0, 0%, 0%, 0.5);
+  margin-right: 2px;
+}
+
+ol{
+  padding: 0;
+}
+
+li{
+font-size: 2rem;
+background-color: hsl(0, 0%, 97%);
+padding: 10px;
+margin-bottom: 10px;
+border: 3px solid hsl(0, 0%, 85%);
+border-radius: 5px;
+display: flex;
+align-items: center;
+}
+
+.text{
+  flex: 1;
+}
+
+.deleteButton, .upDownButton{
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  margin-left: 10px;
+}

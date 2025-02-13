@@ -1,6 +1,14 @@
+.body{
+  
+}
+
 .To-Do-List{
   text-align: center;
-  margin-top: 100px;
+  background-image: url('to-do-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 h1{

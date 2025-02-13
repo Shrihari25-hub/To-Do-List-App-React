@@ -1,10 +1,7 @@
-.body{
-  
-}
 
 .To-Do-List{
   text-align: center;
-  background-image: url('to-do-bg.jpg');
+  background-image: url('./to-do-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

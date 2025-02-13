@@ -1,9 +1,28 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 function ToDoList() {
 
-    const [tasks, setTasks] = useState(["Take shower", "Eat breakfast", "Go to college"]);
-    const [newTasks, setNewTasks] = useState();
+    const [tasks, setTasks] = useState( ()=> {
+        try {
+        const savedTasks = localStorage.getItem("tasks");
+        return savedTasks ? JSON.parse(savedTasks) : [];
+      } catch (error) {
+        console.error("Error parsing tasks from localStorage:", error);
+        return [];
+      }
+      });
+    const [newTasks, setNewTasks] = useState("");
+
+    // useEffect( ()=> {
+    //     const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+    //     if (savedTasks){
+    //         setTasks(savedTasks);
+    //     }
+    // }, []);
+
+    useEffect(()=> {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     function handleInputchange(event) {
        setNewTasks(event.target.value);
@@ -11,9 +30,10 @@ function ToDoList() {
 
     function handleAddTask() {
 
-        if(newTasks.trim() !== "")
+        if(newTasks.trim() !== ""){
       setTasks(t => [...t, newTasks]);
       setNewTasks("");
+        }
     }
 
     function handleDeleteTask(index) {
@@ -56,7 +76,7 @@ function ToDoList() {
         <button className="addButton" onClick={handleAddTask}>Add</button>
 
         <ol>
-            {tasks.map((task, index) => 
+            {tasks.map((task, index) => (
 
             <li className="taskList">
                 <span className="text">{task}</span>
@@ -64,9 +84,10 @@ function ToDoList() {
                 <button className="upDownButton" onClick={() => handleTaskUp(index)}>Up</button>
                 <button className="upDownButton" onClick={() => handleTaskDown(index)}>Down</button>
 
-            </li>)}
+            </li>))}
         </ol>
-    </div>);
+    </div>
+    );
 }
 
 export default ToDoList

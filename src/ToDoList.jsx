@@ -66,8 +66,18 @@ function ToDoList() {
 
     }
 
+    useEffect(() => {
+        document.body.style.backgroundColor = "#D8E2DC";
+        return () => {
+          document.body.style.backgroundColor = "";
+        };
+      }, []);
 
-    return(<div className="To-Do-List">
+      
+    return(
+    <div className="bg">
+
+    <div className="To-Do-List">
 
         <h1>To-Do-List</h1>
 
@@ -86,6 +96,7 @@ function ToDoList() {
 
             </li>))}
         </ol>
+    </div>
     </div>
     );
 }
